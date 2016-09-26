@@ -1,4 +1,4 @@
-System.register(['angular2/core', './components/courses', './components/authors'], function(exports_1, context_1) {
+System.register(['angular2/core', './components/courses', './components/authors', "./components/favorite"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', './components/courses', './components/authors'
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, courses_1, authors_1;
+    var core_1, courses_1, authors_1, favorite_1;
     var AppComponent;
     return {
         setters:[
@@ -22,16 +22,26 @@ System.register(['angular2/core', './components/courses', './components/authors'
             },
             function (authors_1_1) {
                 authors_1 = authors_1_1;
+            },
+            function (favorite_1_1) {
+                favorite_1 = favorite_1_1;
             }],
         execute: function() {
             AppComponent = (function () {
                 function AppComponent() {
+                    this.title = "sjaak";
+                    this.post = {
+                        isActive: true
+                    };
                 }
+                AppComponent.prototype.onClick = function () {
+                    alert('khasbckjhcd');
+                };
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
-                        template: '<h1>blaat</h1><courses></courses><authors></authors>',
-                        directives: [courses_1.CourseComponent, authors_1.AuthorComponent]
+                        template: "<h1>blaat</h1>\n              <button (click)=\"onClick()\">test</button>\n              <favorite [active]=\"post.isActive\"></favorite>\n              <input type=\"text\" [(ngModel)]=\"title\" />Preview: {{title}}\n              <courses></courses>\n              <authors></authors>",
+                        directives: [courses_1.CourseComponent, authors_1.AuthorComponent, favorite_1.FavoriteComponent]
                     }), 
                     __metadata('design:paramtypes', [])
                 ], AppComponent);
